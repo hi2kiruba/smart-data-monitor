@@ -1,7 +1,8 @@
 import json
-from file_manager import read_json
-from logger_manager import get_logger
-from config_manager import load_config
+from backend.core.file_manager import read_json
+
+from backend.core.logger_manager import get_logger
+from backend.core.config_manager import load_config
 
 logger = get_logger("Analyzer-Dynamic")
 
