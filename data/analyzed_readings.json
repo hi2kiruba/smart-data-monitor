@@ -1,16 +1,16 @@
 [
     {
         "device_id": "D1",
-        "temperature": 42,
-        "battery": 85,
+        "temperature": 42.0,
+        "battery": 85.0,
         "status": [
             "High Temperature"
         ]
     },
     {
         "device_id": "D2",
-        "temperature": 30,
-        "battery": 15,
+        "temperature": 30.0,
+        "battery": 15.0,
         "status": [
             "Low Battery"
         ]
