@@ -4,7 +4,7 @@
         "temperature": 42.0,
         "battery": 85.0,
         "status": [
-            "High Temperature"
+            "High Temperature > 40"
         ]
     },
     {
@@ -12,7 +12,7 @@
         "temperature": 30.0,
         "battery": 15.0,
         "status": [
-            "Low Battery"
+            "Low Battery < 20"
         ]
     }
 ]
