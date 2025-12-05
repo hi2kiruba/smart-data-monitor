@@ -1,0 +1,18 @@
+[
+    {
+        "device_id": "D1",
+        "temperature": 42,
+        "battery": 85,
+        "status": [
+            "High Temperature"
+        ]
+    },
+    {
+        "device_id": "D2",
+        "temperature": 30,
+        "battery": 15,
+        "status": [
+            "Low Battery"
+        ]
+    }
+]

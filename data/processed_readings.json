@@ -1,0 +1,4 @@
+[
+    { "device_id": "D1", "temperature": 42, "battery": 85 },
+    { "device_id": "D2", "temperature": 30, "battery": 15 }
+]
