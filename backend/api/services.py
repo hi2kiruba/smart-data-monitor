@@ -1,16 +1,12 @@
-from backend.core.day5_analyzer_dynamic import analyze_readings
-from backend.core.logger_manager import get_logger
+from datetime import datetime
 from backend.storage.result_store import save_results
 
-logger = get_logger("API-Service")
 
+async def run_analysis_service():
+    meter_id = "METER001"
+    date = datetime.now().strftime("%Y-%m-%d")
+    count = 7
 
-def run_analysis_service():
-    logger.info("API request → triggering analyzer")
+    await save_results(meter_id, date, count)
 
-    result = analyze_readings()
-
-    logger.info("Saving analysis result")
-    save_results(result)
-
-    return {"message": "Analysis successful", "result": result}
+    return {"meter_id": meter_id, "date": date, "count": count}

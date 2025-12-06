@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Data Monitor Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        h1 { color: #2b4c7e; margin-bottom: 10px; }
+        .container {
+            max-width: 900px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #aaa;
+        }
+        th {
+            background-color: #e2ecff;
+        }
+        .chart-box {
+            width: 100%;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2b4c7e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Smart Data Monitor Dashboard</h1>
+
+    <button onclick="location.reload()">🔄 Refresh Dashboard</button>
+
+    <div class="chart-box">
+        <canvas id="readingChart"></canvas>
+    </div>
+
+    <h2>Processed Readings</h2>
+
+    {% if data %}
+    <table>
+        <tr>
+            <th>Meter ID</th>
+            <th>Date</th>
+            <th>Reading Count</th>
+        </tr>
+       {% for item in data %}
+<tr>
+    <td>{{ item.meter_id }}</td>
+    <td>{{ item.date }}</td>
+    <td>{{ item.reading_count }}</td>
+</tr>
+{% endfor %}
+    </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</div>
+
+<script>
+(function(){
+    const labels = {{ metrics.labels | safe }};
+    const values = {{ metrics.counts | safe }};
+
+    const ctx = document.getElementById("readingChart");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels,
+            datasets: [{
+                label: "Counts",
+                data: values,
+            }]
+        }
+    });
+})();
+</script>
+
+
+</body>
+</html>
